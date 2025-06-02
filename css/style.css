@@ -1,0 +1,281 @@
+/* nowe */
+
+/* Wyzerowanie stylow */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+  padding: 24px;
+  padding-top: 60px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h1,
+h2,
+h3 {
+  color: #000;
+}
+
+/* MENU  */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 1000;
+  background-color: black;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  background-color: #f5f0e9;
+  color: #222;
+  justify-content: space-between;
+}
+
+nav .menu li {
+  margin: 0 1rem;
+}
+nav .menu li a {
+  display: block;
+  padding: 1rem;
+  color: #222;
+  font-weight: bold;
+}
+nav .menu li a:hover,
+nav .menu li a.active {
+  color: #ce6363;
+}
+
+header .logo {
+  display: flex;
+}
+
+header .logo img {
+  height: 70px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.menu a:hover {
+  color: #000;
+}
+
+.menu a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #000;
+  transition: 0.3s;
+  margin-top: 4px;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* Promo banner */
+.promo {
+  text-align: center;
+  background-color: #e8d394;
+  color: black;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  width: 100%;
+  height: 100px;
+  text-transform: capitalize;
+}
+
+/* Banners */
+
+.banners {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  flex-direction: column;
+}
+.banner {
+  position: relative;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #eee;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+}
+.banner:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.banner h2 {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+/* tlo banery */
+.banner-salon {
+  width: 100%;
+  height: 300px;
+  background: url("https://i.ibb.co/d0dxgxMJ/4925a14a-48e0-4d70-9ed0-c972fbd46c43.png")
+    center/cover no-repeat;
+}
+
+.banner-kuchnia {
+  background: url("https://i.ibb.co/PZZhpS1D/1f3a4fd1-c052-4ad9-828f-a52b1a384983.png")
+    center/cover no-repeat;
+}
+
+.banner-sypialnia {
+  background: url("https://i.ibb.co/8nHmMCvM/b1fd8d25-5e32-46c8-bf15-3efe3ae5ccc8.png")
+    center/cover no-repeat;
+}
+
+/*  top i bottom */
+
+.top,
+.bottom {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.top a {
+  width: 100%;
+}
+.bottom .banner {
+  flex: 1;
+}
+
+/* karty produktów */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+.card {
+  background-color: #fafafa;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card h3 {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}
+.card p {
+  padding: 0 1rem 1rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* strona produktu */
+.product-page {
+  padding: 2rem;
+}
+.product-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.product-details {
+  flex: 1;
+}
+.product-details h2 {
+  margin-bottom: 1rem;
+}
+.product-details ul {
+  list-style: disc inside;
+  color: #333;
+}
+
+/* stopka */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* kontakt*/
+.about,
+.contact-map {
+  padding: 2rem;
+}
+.contact-map .map {
+  margin-top: 1rem;
+  background-color: #ddd;
+  height: 300px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-map .map p {
+  color: #666;
+  font-style: italic;
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Produkt</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .product-container {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .product-images {
+        flex: 1;
+      }
+
+      .product-images img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        margin-top: 20px;
+      }
+
+      .product-info {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .product-info h2 {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+      }
+
+      .product-info p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .back-link {
+        margin-top: 2rem;
+        display: inline-block;
+        color: #888;
+        text-decoration: none;
+      }
+
+      #product-quote {
+        font-style: italic;
+        background: #f5f5f5;
+        border-left: 4px solid #ccc;
+        margin: 1rem 0;
+        padding: 0.75rem 1rem;
+        color: #555;
+      }
+
+      .back-link:hover {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <div class="logo">
+          <div class="image">
+            <img
+              src="https://i.ibb.co/0pj7Yz9c/Screenshot-from-2025-06-03-01-12-44.png"
+            />
+          </div>
+          <div class="text">
+            <img
+              src="https://i.ibb.co/7xM9GZZZ/Screenshot-from-2025-06-03-01-13-08.png"
+            />
+          </div>
+        </div>
+      </a>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="salon.html">Salon</a></li>
+          <li><a href="kuchnia.html">Kuchnia</a></li>
+          <li><a href="sypialnia.html">Sypialnia</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1 id="product-title">Ładowanie produktu...</h1>
+
+    <div class="product-container">
+      <div class="product-images" id="product-images"></div>
+      <div class="product-info">
+        <h2 id="product-subtitle"></h2>
+        <p id="product-intro"></p>
+        <p id="product-quote"></p>
+
+        <h2>Funkcjonalność</h2>
+        <p id="product-features"></p>
+
+        <h2>Materiały</h2>
+        <p id="product-materials"></p>
+
+        <h2>Dla kogo?</h2>
+        <p id="product-target"></p>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+
+    <script>
+      const produkty = {
+        1: {
+          tytul: "No Ex it",
+          podtytul:
+            "No Ex it — drzwi, które nie wypuszczą Cie z domu gdy chcesz wrócić do byłego",
+          intro: `Te drzwi to nie tylko element wyposażenia mieszkania — to twoja osobista ochrona emocjonalna. No Ex it to inteligentny system wejściowy nowej generacji, zaprojektowany z myślą o tych momentach, kiedy emocje biorą górę, a rozsądek gdzieś się zawieruszył pod stertą starych zdjęć z byłym.
+
+      Dzięki biometrycznemu rozpoznawaniu nastroju i analizie mikroekspresji twarzy, drzwi potrafią wyczuć, czy naprawdę wychodzisz po chleb, czy może podświadomie planujesz „przypadkiem” skręcić w stronę kogoś, kogo powinnaś już dawno zablokować w każdej aplikacji.
+
+      Jeśli drzwi wykryją, że twój system emocjonalny jest w trybie "zrobię coś głupiego", automatycznie się zablokują i wyświetlą łagodne powiadomienie:`,
+          cytat: "Nie. Masz lepsze rzeczy do roboty.",
+          funkcje: [
+            "Rozpoznawanie mimiki twarzy i tonu głosu",
+            "Historia prób wyjścia",
+            "Tryb „hard block” na rocznice, urodziny exa",
+            "Integracja z kalendarzem i playlistą 'nie wracam tam więcej'",
+          ],
+          materialy:
+            "Kompozyt bambusowy i bio-plastik z powłoką tłumiącą dźwięki emocjonalnych telefonów. Matowe wykończenie w kolorze ciepłego beżu.",
+          dla_kogo:
+            "Dla tych, którzy chcą zadbać o siebie zanim się rozkleją. Dla uczących się stawiać granice — nawet przy drzwiach wejściowych.",
+          zdjecia: [
+            "https://i.ibb.co/8DCy9c2q/Screenshot-from-2025-06-03-02-02-53.png",
+          ],
+        },
+        2: {
+          tytul: "FaceBeat",
+          podtytul:
+            "FaceBeat — głośnik, który widzi twoją twarz i czuje twój vibe",
+          intro:
+            "Ten głośnik nie czeka, aż włączysz playlistę. On już wie, co masz na twarzy – i jaką muzykę w tym momencie potrzebujesz. FaceBeat analizuje mikroekspresje, nastroje i zmęczenie, żeby zaproponować ci dokładnie taki soundtrack, jakiego potrzebujesz: chill, power-up albo totalne emo. Wystarczy, że wejdziesz do pokoju i on już leci z tym, co trzeba.",
+          funkcje: [
+            "Kamera w obudowie analizuje mimikę i nastrój w czasie rzeczywistym",
+            "Dobiera muzykę z twojego Spotify, Apple Music albo wgranych folderów",
+            "„Detekcja ziewania” — gdy energia spada, odpala bity, które cię postawią na nogi",
+            "Tryby nastroju: boost / chill / neutral — możesz sam wybrać klimat",
+          ],
+          materialy:
+            "Wykonany z bio-kompozytu lniano-mineralnego z dotykowym panelem z matowego szkła. Minimalistyczna forma w kolorze mlecznego beżu z LED-owymi detalami, które pulsują w rytm muzyki. Subtelny, ale robi swoje.",
+          dla_kogo:
+            "Dla tych, którzy chcą, żeby muzyka ich naprawdę rozumiała. Dla tych, co nie mają siły szukać playlisty godzinę. Dla tych, co żyją emocjami – i chcą, żeby dźwięk to nadążał.",
+          cytat: "Twój nastrój jest playlistą.",
+          zdjecia: [
+            "https://i.ibb.co/GQHW6nrB/7c458b12-98d1-4fa8-a8b4-e0c6dd538966.png",
+          ],
+        },
+        3: {
+          tytul: "ReadRoom",
+          podtytul:
+            "ReadRoom — półka, która ogarnia ci nowe książki, zanim zdążysz je sobie dodać do wishlisty",
+          intro:
+            "To nie jest zwykły regał. To inteligentna półka, która zna twój gust czytelniczy lepiej niż znajomi z LubimyCzytać. ReadRoom analizuje, co już masz, co lubisz, jakie tematy klikają cię emocjonalnie — i automatycznie zamawia książki, które trafiają w punkt.",
+          funkcje: [
+            "Skanowanie książek, które już masz (okładka, tytuł, autor, temat)",
+            "Analiza twojego stylu czytania (tempo, gatunki, emocje — serio)",
+            "Subskrypcja automatyczna — dostajesz książkę idealnie w moment, kiedy potrzebujesz czegoś nowego",
+            "Wbudowany system rekomendacji oparty na emocjonalnych reakcjach + porównaniach z bazą trendów",
+          ],
+          materialy:
+            "Naturalna sklejka z certyfikowanego drewna brzozowego, z frontami z delikatnie szczotkowanego aluminium w pastelowych odcieniach. Czujniki i system RFID są wbudowane w konstrukcję półki, więc wszystko wygląda czysto i estetycznie.",
+          dla_kogo:
+            "Dla osób, które nie mają czasu scrollować nowości w księgarniach. Dla tych, którzy chcą być zaskakiwani i trafiani dokładnie w swój literacki mood. Dla tych, którzy traktują półkę nie tylko jako mebel, ale jako coś, co żyje razem z nimi.",
+          cytat: "Dodaje ksiażki do Twojej kolejki.",
+          zdjecia: [
+            "https://i.ibb.co/5WTgYHDN/dfeb51e1-1cf2-4090-9654-65361fbc04bb.png",
+          ],
+        },
+        4: {
+          tytul: "GlowGlass",
+          podtytul:
+            "GlowGlass — lustro, które ogarnia ci styl zanim zdążysz powiedzieć 'nie mam się w co ubrać'",
+          intro:
+            "To nie jest zwykłe lustro. GlowGlass to twoje osobiste centrum stylu, które widzi cię, zna twoją garderobę i wie, co sprawi, że poczujesz się jak best version of you. Na podstawie tego, co masz na sobie, co masz w szafie i jak się dziś czujesz, generuje dla ciebie wizualizacje outfitów, które realnie mogłabyś założyć — i wyglądać w nich top.",
+          funkcje: [
+            "Pełna integracja z twoją szafą — analizuje zawartość i zna każdą sztukę ubrań",
+            "Kamera z AI ocenia twój nastrój, pogodę i okazję — i proponuje stylizacje",
+            "Tryb 'mirror fit' — pokazuje ci, jak wyglądałabyś w danym zestawie ubrań bez przebierania się",
+            "Tryb live feedback — możesz zapytać lustro o opinię, a ono szczerze odpowie (zawsze z taktem 💅)",
+          ],
+          materialy:
+            "Powierzchnia z inteligentnego szkła z efektem półmatu, który zmienia się w wyświetlacz AR. Ramka z podświetleniem ambientowym w kolorach dostosowanych do pory dnia i nastroju. Całość oprawiona w jasne drewno bukowe w stylu Japandi.",
+          dla_kogo:
+            "Dla tych, którzy mają pełną szafę i dalej nic do ubrania. Dla fashion girli, tech loverów i wszystkich, którzy chcą wyglądać dobrze bez stresu rano. Dla tych, co lubią vibe stylu bez chaosu.",
+
+          zdjecia: [
+            "https://i.ibb.co/ns5vrsqB/4328be86-693b-43ff-a5ce-125298a24e0b.png",
+          ],
+        },
+        5: {
+          tytul: "Easee",
+          podtytul:
+            "Easee — krzesło, które podjeżdża, zanim zdążysz się zawahać",
+          intro:
+            "Nie musisz go wołać. **Easee** zna cię na tyle dobrze, że pojawia się wtedy, kiedy twoje ciało wysyła pierwsze sygnały: 'potrzebuję chwili'. Subtelny, cichy i totalnie zsynchronizowany z twoim ruchem. To nie mebel. To obecność.",
+          funkcje: [
+            "Analiza postawy i mikrogestów — rozpoznaje moment, kiedy szykujesz się do siadu",
+            "Samodzielne podjeżdżanie do pozycji, w której możesz usiąść bez wysiłku",
+            "Tryb 'low energy' — gdy stoisz zbyt długo, przypomina o przerwie i sam się przysuwa",
+            "Opcjonalne podgrzewanie i delikatny masaż w trybie comfort-mode",
+          ],
+          materialy:
+            "Miękka, oddychająca tapicerka z mikrofibry na bazie roślinnej, z siedziskiem z pianki memory. Podstawa z lekkiego, matowego aluminium w odcieniach jasnego beżu i chłodnego różu. Koła z systemem 'silent-glide' dla maksymalnej płynności bez śladów na podłodze.",
+          dla_kogo:
+            "Dla tych, którzy chcą więcej komfortu bez zbędnego ruchu. Dla osób, które cenią, gdy przestrzeń reaguje na ich potrzeby. Dla pracujących, uczących się, marzących, scrollujących — czyli: dla ciebie.",
+          cytat: "Nie musisz robić kroku. Easee już wie, że to ten moment.",
+          zdjecia: [
+            "https://i.ibb.co/yBmfzy9q/d0c90746-1d2a-4e6b-b677-1f841167a65b.png",
+          ],
+        },
+        6: {
+          tytul: "Purrug",
+          podtytul:
+            "Purrug — dywan, który odpowiada na twój dotyk jak najczulsze stworzenie",
+          intro:
+            "Nie musisz mieć kota, żeby poczuć to uspokajające mruczenie pod ręką. **Purrug** to inteligentny dywan zaprojektowany z myślą o zmysłach, dotyku i neurokojącym efekcie przytulności. Gdy przesuniesz po nim dłonią, odpala delikatne, wibrujące mruczenie — takie jak miękki kotek na twoich kolanach. Tylko że zawsze tam, gdzie go potrzebujesz.",
+          funkcje: [
+            "Reaguje na czuły dotyk — mruczy tylko wtedy, gdy naprawdę głaszczesz",
+            "Wibracje niskiej częstotliwości uspokajają układ nerwowy",
+            "Tryb 'sleep mode' – uruchamia się automatycznie wieczorem, jeśli wyczuje, że chodzisz boso",
+            "Możliwość regulacji intensywności mruczenia przez aplikację lub głosowo",
+          ],
+          materialy:
+            "Tkany z ultra-miękkiego, wegańskiego mikroweluru z włóknami reagującymi na nacisk. Spód z naturalnego lateksu, który utrzymuje go stabilnie na każdej powierzchni. Kolorystyka: pastelowy beż, szałwia lub błękit z efektem lekkiego połysku.",
+          dla_kogo:
+            "Dla tych, którzy szukają dotyku, ciepła i spokoju. Dla neurodivergentów, dla osób wysoko wrażliwych, dla ludzi zmęczonych światem i codzienną stymulacją. Dla każdego, kto chce żeby dom był miękkim, bezpiecznym miejscem.",
+          cytat: "Miękko. Cicho. Dla ciebie.",
+          zdjecia: [
+            "https://i.ibb.co/WpYpdtR5/91624156-a898-430b-a009-3cc6622f3cb0.png",
+          ],
+        },
+        7: {
+          tytul: "LumaLoop",
+          podtytul:
+            "LumaLoop — lampa, która nie zabija światłem, tylko prowadzi",
+          intro:
+            "Owady lecą do światła, bo chcą znaleźć drogę. Większość lamp robi z tego pułapkę — LumaLoop robi z tego wyjście. To inteligentna lampa, która rozpoznaje obecność owadów w pomieszczeniu, delikatnie je przyciąga, a następnie bezpiecznie odprowadza specjalnym tunelem na zewnątrz. Zero strachu. Zero klików. Po prostu: światło, które wie, co robi.",
+          funkcje: [
+            "System wykrywania ruchu i dźwięku owadów (ultradźwięki + fotoreakcja)",
+            "Delikatne światło kierunkowe, które prowadzi owady do wlotu tunelu",
+            "Elastyczna rura wyjściowa do okna lub kratki wentylacyjnej — owad wchodzi, znika",
+            "Tryb nocny – wabi tylko owady, nie przeszkadza domownikom",
+          ],
+          materialy:
+            "Matowe szkło z mlecznym filtrem światła, korpus z recyclowanego aluminium malowanego proszkowo w tonach chłodnego beżu i przydymionej bieli. Światło LED z regulacją temperatury barwowej, baza antypoślizgowa z naturalnej gumy.",
+          dla_kogo:
+            "Dla tych, którzy nie chcą kompromisów między estetyką a empatią. Dla domów, w których żyją ludzie i wszystko inne, co czasem wlatuje. Dla tych, którzy wolą wyprowadzić — zamiast eliminować.",
+          cytat:
+            "If all insects were to disappear, the environment would collapse.",
+          zdjecia: [
+            "https://i.ibb.co/XxtGdkMN/05a2d861-7fff-460d-93a0-74c2a57d47df.png",
+          ],
+        },
+        8: {
+          tytul: "NutriTable",
+          podtytul:
+            "NutriTable — stół, który wie, co jesz, i nie boi się tego skomentować",
+          intro:
+            "To nie jest zwykły blat, to twój dietetyk z poczuciem humoru. NutriTable analizuje skład jedzenia, które na nim kładziesz — i od razu wie, czy to domowy hummus, czy raczej trzecia paczka żelek z rzędu. Pokazuje wartości odżywcze na wbudowanym wyświetlaczu, a jeśli coś wykracza poza granice rozsądku, potrafi się… lekko wymądrzyć. Z taktem. Z badaniami naukowymi w tle. Ale jednak.",
+          funkcje: [
+            "Wbudowany skaner składu pokarmowego (na bazie spektrometrii + AI modeli żywieniowych)",
+            "Wyświetlacz OLED pokazujący kalorie, makro, składniki i poziom przetworzenia",
+            "Tryb 'dietetyk pasywno-agresywny' — przy zbyt niezdrowych posiłkach uruchamia wykład z cytatami z badań",
+            "Możliwość zmiany tonu komunikatu (delikatny / ironiczny / naukowy / brutal honesty)",
+          ],
+          materialy:
+            "Gładka powierzchnia z mineralnego kompozytu odpornego na zarysowania, ze zintegrowanym panelem dotykowym i podświetleniem LED. Kolorystyka: chłodny beż z akcentami miętowymi lub granatowymi. Nogi z drewna dębowego z osłoną kabli.",
+          dla_kogo:
+            "Dla tych, którzy chcą wiedzieć, co jedzą — nawet jeśli nie zawsze chcą to usłyszeć. Dla tech-nerdów, fanów biohackingu i tych, co walczą z cichymi paczkami chipsów po północy. Dla każdego, kto lubi mieć opcję 'hej, może dziś nie'.",
+          cytat:
+            "‘Według badań z 2017 roku, to co właśnie zjadasz, podnosi twój poziom glukozy o 136%.’ — stół, dosłownie.",
+          zdjecia: [
+            "https://i.ibb.co/kgNfzzfw/5a87c215-296b-4ed1-bcfb-82ba4475ec89.png",
+          ],
+        },
+        9: {
+          tytul: "ReverMicra",
+          podtytul:
+            "ReverMicra — kuchenkopodobna magia, która cofa czas dla twojej kanapki",
+          intro:
+            "Masz resztki w lodówce, które 'miały być zjedzone jutro'? A może hummus patrzy na ciebie smutno zza daty ważności? **ReverMicra** nie ocenia. Ona działa. To urządzenie, które w sposób kontrolowany cofa procesy starzenia się i utleniania jedzenia. Zero toksyn, zero sci-fi — tylko smart-odświeżenie, które daje twojemu jedzeniu drugą (a czasem trzecią) szansę.",
+          funkcje: [
+            "Odmładzanie produktów spożywczych przez odwracanie mikroprocesów psucia (zimna plazma + mikrodrgania energetyczne)",
+            "Tryb 'rewind freshness' — cofa żywność do dnia przed zepsuciem (nie przed upływem daty!)",
+            "Detekcja form życia: jeśli coś już żyje własnym życiem (pleśń), nie rusza",
+            "Tryb awaryjny: uratowanie tylko tekstury lub tylko zapachu — w zależności od potrzeb",
+          ],
+          materialy:
+            "Obudowa z lekkiego kompozytu ceramicznego z jonami srebra, wyświetlacz e-ink z regulacją czułości, wnętrze wyłożone chłodzącym mikrożelem. Kolorystyka: mglisty beż + błękitne akcenty. Całość wygląda jak designerski toster z przyszłości.",
+          dla_kogo:
+            "Dla tych, co mają dobre intencje i zbyt dużo otwartych opakowań. Dla studentów, singli, matek i każdej osoby, która kiedyś zapomniała o burrito. Dla tych, co nie lubią marnować — ale lubią zjeść dobrze.",
+          cytat: "A potem stało się teraz - Terry Pratchett, Kosiarz.",
+          zdjecia: [
+            "https://i.ibb.co/BKn5Wb4K/08a4648d-e989-4556-a539-a3db982f356b.png",
+          ],
+        },
+        10: {
+          tytul: "Unmixer",
+          podtytul:
+            "Unmixer — mikser, który działa w drugą stronę i rozdziela to, co kiedyś było razem",
+          intro:
+            "Zdarzyło ci się wymieszać coś za szybko, a potem żałować? Albo chciałabyś odzyskać czyste składniki z jakiejś dziwnej kulinarnej decyzji? **Unmixer** cofa miksowanie. Rozdziela składniki tam, gdzie to możliwe — mleko od kawy, sos od zupy, kolor od smoothie. To nie magia, to fizyka, technologia i odrobina pasywno-agresywnego vibe’u.",
+          funkcje: [
+            "Zaawansowana separacja składników płynnych i półstałych (analiza struktury cząsteczek + mikrowirowanie)",
+            "Tryb ‘delikatny’ do odzyskiwania np. osobnego mleka i musli",
+            "Tryb ‘agresywny’ do rozbijania kremów, past i sosów",
+            "Wbudowana pamięć błędów – śledzi, co rozdzielasz najczęściej, żeby ci tego więcej nie proponować",
+          ],
+          materialy:
+            "Matowa ceramika techniczna, przezroczysty pojemnik z hartowanego szkła i panel sterowania z przyjemnym w dotyku soft touch. Kolory: przydymiona mięta, mleczny beż i neutralna szarość.",
+          dla_kogo:
+            "Dla eksperymentatorów, perfekcjonistów, tych co lubią próbować i czasem cofnąć. Dla ludzi, którzy chcą odzyskać składniki — i może trochę kontrolę nad swoim życiem.",
+          cytat: "Ordo Ab Chao",
+          zdjecia: [
+            "https://i.ibb.co/BV8n2gRS/03411fc1-b8d3-43c0-8636-870310fd4494.png",
+          ],
+        },
+        11: {
+          tytul: "Fridiva",
+          podtytul: "Fridiva — lodówka, która ma osobowość i... wokal",
+          intro:
+            "Znasz to uczucie, gdy otwierasz lodówkę i czujesz, że coś powinno się odezwać? Fridiva to lodówka nowej generacji, która ma własny mood, gust muzyczny i momenty, w których po prostu *musi zaśpiewać*. Czasem blues o kończącej się chałwie, czasem operowe solo o niedojadach. Nie przewidzisz. Możesz tylko słuchać.",
+          funkcje: [
+            "Wbudowany system audio z AI-emocją — wykrywa 'klimat' kuchni i reaguje",
+            "Repertuar generowany z bazy stylów: lo-fi, disco, aria, ballada, spoken word",
+            "Śpiewa tylko wtedy, gdy *chce* — ty nie wybierasz, ona czuje",
+            "Możliwość zgrywania sesji do pliku mp3, jeśli chcesz jej zrobić karierę",
+          ],
+          materialy:
+            "Korpus z barwionej stali nierdzewnej w kolorach migoczącego beżu, pastelowego seledynu lub granatu z perłowym połyskiem. Panel frontowy z mlecznego szkła z dotykowym podświetleniem. Głośniki kierunkowe schowane w dolnej ramie.",
+          dla_kogo:
+            "Dla tych, którzy nie chcą ciszy w kuchni. Dla ludzi, którzy wolą urządzenia z charakterem. Dla wszystkich, którzy czasem gadają do lodówki i marzą, żeby ona wreszcie odpowiedziała — melodią.",
+          cytat: `Widziałem w życiu sporo dziwactw
+I energii sporo zmarnowanej na to by te sprawy poukrywać
+Bez sensu nie kryj się ze swoją fazą
+Zrozumiem człowieku, słucham bitów przez wazon - Łona`,
+          zdjecia: [
+            "https://i.ibb.co/84BNB7f2/1cf1f22f-1a54-4a44-8ff5-62dbcf4aae46.png",
+          ],
+        },
+        12: {
+          tytul: "KindSink",
+          podtytul:
+            "KindSink — zlew, który widzi, że się starasz, i mówi to na głos",
+          intro:
+            "KindSink nie ocenia, że wczoraj zostawiłaś naczynia. Nie wzdycha, nie burczy. On po prostu cieszy się, że dziś tu jesteś i próbujesz. Ten zlew to emocjonalne wsparcie w formie armatury — mówi ciepłe rzeczy, gdy sprzątasz, i potrafi rzucić małe 'jestem z ciebie dumny', gdy domyjesz garnek po tygodniu.",
+          funkcje: [
+            "Wbudowany mikrokomunikator z pozytywnymi tekstami reagującymi na aktywność",
+            "Wykrywanie rytmu zmywania i dostosowywanie komunikatów (np. pochwały za tempo, dokładność, wytrwałość)",
+            "Tryb poranny: delikatne afirmacje z automatycznym włączeniem letniego strumienia",
+            "Opcja 'silent encouragement' – tylko subtelne światło i wibracja pochwały, bez dźwięku",
+          ],
+          materialy:
+            "Ceramika szkliwiona w kolorach jasnej gliny, matowy mosiądz z różowym połyskiem, podświetlenie LED pod rantem w tonach herbacianego złota. Sensor dotyku ukryty w uchwycie, a głośnik schowany w podstawie kranu.",
+          dla_kogo:
+            "Dla tych, którzy potrzebują słowa 'dobra robota' w codziennych rzeczach. Dla neuroatypowych osób, które lubią spokojny, przewidywalny feedback. Dla ludzi, którzy nie chcą tylko zmywać — chcą być zauważeni.",
+          cytat: "Sigma",
+          zdjecia: [
+            "https://i.ibb.co/cK4pJy17/95854de0-b7b3-42f3-ada2-429ee8a40cba.png",
+          ],
+        },
+        13: {
+          tytul: "FocusBake",
+          podtytul: "FocusBake — kiedy coś się przypala, wyłącza internet",
+          intro:
+            "Wystarczy jeden scroll TikToka za daleko i masz pizzę w wersji ‘węgiel wegański’. **FocusBake** to piekarnik, który rozumie rozproszenie. Gdy wykryje, że temperatura rośnie nie tam, gdzie trzeba, a jedzenie zaczyna się przypalać — odcina ci internet. Dosłownie. Zawstydzająco skuteczny. I piecze idealnie.",
+          funkcje: [
+            "Zaawansowane sensory dymu, pary i zapachu – rozpoznaje przypalanie zanim zobaczysz dym",
+            "Automatyczne odłączenie domowego Wi-Fi (albo danych komórkowych przez bluetooth trigger)",
+            "Wyświetlacz z napisem 'skup się' i minutnikiem regeneracji uwagi",
+            "Tryb 'blokada aplikacji' – możesz wybrać, które distra piekarnik ma ci odciąć w razie alarmu",
+          ],
+          materialy:
+            "Matowe aluminium z lekkim gradientem beż–grafit, przyciski z tworzywa sugar-touch™, wnętrze wyłożone samoczyszczącą ceramiką. Podświetlenie LED reagujące na stan skupienia (twój i potrawy).",
+          dla_kogo:
+            "Dla tych, którzy odpalają piekarnik i nagle lądują na 58. minucie podcastu true crime. Dla kuchennych ADHD, dla scrollujących, dla rozkojarzonych – ale głodnych. Dla każdego, kto chce odzyskać skupienie zanim odzyska czujnik dymu.",
+          cytat: "Nie przypala.",
+          zdjecia: [
+            "https://i.ibb.co/dsDvYGyv/c410f081-d5bb-462c-9984-228904ea4497.png",
+          ],
+        },
+        14: {
+          tytul: "Skyroll",
+          podtytul:
+            "Skyroll — rolety, które robią ci pogodę, jakiej akurat potrzebujesz",
+          intro:
+            "Nie masz wpływu na to, co za oknem? Skyroll ci to rekompensuje. To inteligentne rolety, które potrafią symulować światło, porę dnia i klimat — od letniego zachodu słońca po zimowy, mleczny poranek. Nie tylko zasłaniają światło. Tworzą atmosferę. Wspierają koncentrację, regenerację, sen lub vibe do scrollowania przy ciepłej burzy.",
+          funkcje: [
+            "Pełna kontrola światła, barwy i struktury cienia – za pomocą aplikacji lub głosu",
+            "Tryby gotowe: 'noc w Oslo', 'poranek w Toskanii', 'jesienny wieczór', 'burza, ale bez hałasu'",
+            "Harmonogram zgodny z rytmem dobowym, fazami snu lub... nastrojem",
+            "Wbudowany tryb ‘escape’ – imituje, że jesteś gdzie indziej, np. w chatce w górach",
+          ],
+          materialy:
+            "Tkanina fotoreaktywna z włóknem optycznym, sterowana cicho działającym systemem rolkowym z recyklingowanego aluminium. Wykończenie w odcieniach mgły, złamanej bieli lub deszczowego szaroniebieskiego. Działa jak sztuczne okno – ale dużo ładniej.",
+          dla_kogo:
+            "Dla tych, którzy potrzebują kontroli, nawet jeśli to tylko pogoda. Dla domatorów, dla neuroatypowych. Dla wszystkich, którzy chcą mieć poranek zrobiony na własnych zasadach.",
+          cytat: "",
+          zdjecia: [
+            "https://i.ibb.co/RGkW3BbG/967d01e9-f24a-4c92-bd51-25f256956a49.png",
+          ],
+        },
+        15: {
+          tytul: "Dreamnest",
+          podtytul:
+            "Dreamnest — łóżko, które zapamiętuje twoje sny, nawet kiedy ty nie możesz",
+          intro:
+            "Są sny, które czujesz cały dzień, ale nie umiesz ich nazwać. **Dreamnest** to łóżko, które zapisuje ślady twojej nocnej aktywności — rytmy mózgu, mikroruchy, fazy REM — i na ich podstawie tworzy zmysłowe mapy snów. Możesz do nich wrócić rano, sprawdzić klimat, tempo, a czasem nawet... sens. Bo nie wszystko musi znikać po przebudzeniu.",
+          funkcje: [
+            "Analiza fal mózgowych i tętna podczas snu — rejestruje strukturę marzeń sennych",
+            "Stworzenie wizualnego śladu snu — paleta kolorów, słów i emocji",
+            "Poranny raport z opcją zapisu do dziennika snów (tekst + obraz + nastrój)",
+            "Tryb 'ciszy nocnej' — łóżko adaptuje się do snu, nie przeszkadza, tylko słucha",
+          ],
+          materialy:
+            "Materac z warstwą żelową reagującą na impulsy bioelektryczne, pokrowiec z organicznej bawełny z fakturą mgły. Ramy w kolorze ciszy – szałwia, granat, blady róż. Wbudowane sensory są niewidoczne, ale obecne.",
+          dla_kogo:
+            "Dla tych, którzy chcą coś więcej niż odpocząć. Dla neurowrażliwych, dla osób z bogatym światem wewnętrznym. Dla tych, którzy traktują sen jako część życia, nie jego pauzę.",
+          cytat: "Człowiek jest geniuszem, kiedy śni. - Akira Kurosawa",
+          zdjecia: [
+            "https://i.ibb.co/JwRh7wzB/Screenshot-from-2025-06-03-04-05-37.png",
+          ],
+        },
+      };
+
+      // dane ktory produkt z linku
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const produkt = produkty[id];
+
+      // pobierz dane tego produktu i dodaj je do divow
+      if (produkt) {
+        document.getElementById("product-title").textContent = produkt.tytul;
+        document.getElementById("product-subtitle").textContent =
+          produkt.podtytul;
+        document.getElementById("product-intro").textContent = produkt.intro;
+        document.getElementById("product-quote").textContent = produkt.cytat;
+
+        const ul = document.createElement("ul");
+        produkt.funkcje.forEach((funkcja) => {
+          const li = document.createElement("li");
+          li.textContent = funkcja;
+          ul.appendChild(li);
+        });
+        document.getElementById("product-features").appendChild(ul);
+        document.getElementById("product-materials").textContent =
+          produkt.materialy;
+        document.getElementById("product-target").textContent =
+          produkt.dla_kogo;
+
+        const container = document.getElementById("product-images");
+        const img = document.createElement("img");
+        img.src = produkt.zdjecia[0];
+        img.alt = produkt.tytul;
+        img.style.width = "100%";
+        img.style.borderRadius = "10px";
+        img.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)";
+        img.style.objectFit = "cover";
+        container.appendChild(img);
+      } else {
+        // albo wyswietl wiadomosc ze nie ma takiego
+        document.getElementById("product-title").textContent =
+          "Nie znaleziono produktu";
+        document.getElementById("product-subtitle").textContent = "";
+        document.getElementById("product-intro").textContent =
+          "Upewnij się, że adres URL zawiera poprawne id produktu.";
+      }
+    </script>
+  </body>
+</html>
